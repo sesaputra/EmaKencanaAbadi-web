@@ -21,7 +21,7 @@
 
     <!-- Form Login -->
     <div class="relative z-10 w-full max-w-sm bg-white/60 backdrop-blur-md rounded-xl shadow-xl p-8">
-        <h2 class="text-3xl font-semibold text-gray-800 text-center mb-6">Login</h2>
+        <h2 class="text-3xl font-semibold text-gray-800 text-center mb-6">Login Admin</h2>
 
         @if($errors->any())
         <div class="bg-red-100 text-red-600 px-4 py-2 text-sm rounded mb-4">
