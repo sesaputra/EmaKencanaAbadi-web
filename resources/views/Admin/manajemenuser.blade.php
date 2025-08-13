@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="p-6 bg-white rounded-xl shadow-md">
-    <h2 class="text-3xl font-semibold text-gray-800 mb-6 border-b pb-3">📋 Daftar User Terdaftar</h2>
+    <h2 class="text-3xl font-semibold text-gray-800 mb-6 border-b pb-3">Hallo Testing</h2>
 
     <div class="overflow-x-auto rounded-lg">
         <table class="min-w-full divide-y divide-gray-200">
