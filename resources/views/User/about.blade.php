@@ -57,18 +57,17 @@
         @endforeach
     </div>
 
-
-    <!-- Modal -->
-    <!-- Modal -->
     <div
         x-show="open"
         x-transition.opacity
-        class="fixed inset-0 flex items-center justify-center z-50 backdrop-blur-sm bg-black/60">
+        class="fixed inset-0 flex items-center justify-center z-50 backdrop-blur-sm bg-black/60"
+        style="display: none;" {{-- Tambahkan ini --}}
+        @click.away="open = false" {{-- Opsional: Menutup modal saat klik di luar area modal --}}
+    >
         <div
             x-show="open"
             x-transition.scale
             class="relative bg-white rounded-2xl shadow-2xl max-w-3xl w-full mx-4 sm:mx-6 lg:mx-0 p-6">
-            <!-- Tombol Close -->
             <button
                 @click="open = false"
                 class="absolute top-4 right-4 text-gray-500 hover:text-red-500 transition-all duration-300 text-4xl font-bold leading-none"
@@ -76,7 +75,6 @@
                 &times;
             </button>
 
-            <!-- Konten Modal -->
             <div class="flex flex-col items-center">
                 <img
                     :src="modalImg"

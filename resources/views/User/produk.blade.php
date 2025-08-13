@@ -31,7 +31,6 @@
 </div>
 
 {{-- Daftar Produk --}}
-{{-- Daftar Produk --}}
 <div
     x-data="{ open: false, modalImg: '', modalName: '', modalDesc: '', modalPrice: '' }"
     class="mt-16 px-6 md:px-10 lg:px-32"
@@ -66,25 +65,24 @@
         @endforeach
     </div>
 
-    <!-- Modal Global -->
     <div
         x-show="open"
         x-transition.opacity
         class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center"
+        style="display: none;" {{-- Tambahkan ini untuk memastikan modal tersembunyi secara default --}}
+        @click.away="open = false" {{-- Opsional: Menutup modal saat mengklik di luar area modal --}}
     >
         <div
             x-show="open"
             x-transition.scale
             class="bg-white rounded-2xl shadow-2xl max-w-lg w-full mx-4 p-6 relative"
         >
-            <!-- Tombol Tutup -->
             <button @click="open = false"
                 class="absolute top-3 right-4 text-gray-500 hover:text-red-500 text-3xl font-bold leading-none"
                 aria-label="Close">
                 &times;
             </button>
 
-            <!-- Konten Modal -->
             <img :src="modalImg" alt="Preview" class="w-full h-64 object-cover rounded-xl mb-4">
             <h3 class="text-xl font-bold text-gray-800 mb-2" x-text="modalName"></h3>
             <p class="text-gray-600 mb-3" x-text="modalDesc"></p>

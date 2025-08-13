@@ -44,7 +44,14 @@ class AdminController extends Controller
             'name' => 'required|string|max:255',
             'price' => 'required|numeric',
             'description' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048', // Wajib diisi saat menambah
+        ], [
+            'name.required' => 'Nama produk wajib diisi.',
+            'price.required' => 'Harga produk wajib diisi.',
+            'image.required' => 'Gambar produk wajib diupload.',
+            'image.image' => 'File harus berupa gambar.',
+            'image.mimes' => 'Gambar harus berformat: jpeg, png, atau jpg.',
+            'image.max' => 'Ukuran gambar maksimal 2MB.',
         ]);
 
         $data = $request->only('name', 'price', 'description');
@@ -66,17 +73,21 @@ class AdminController extends Controller
             'name' => 'required|string|max:255',
             'price' => 'required|numeric',
             'description' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048', // Tidak wajib diisi saat update
+        ], [
+            'name.required' => 'Nama produk wajib diisi.',
+            'price.required' => 'Harga produk wajib diisi.',
+            'image.image' => 'File harus berupa gambar.',
+            'image.mimes' => 'Gambar harus berformat: jpeg, png, atau jpg.',
+            'image.max' => 'Ukuran gambar maksimal 2MB.',
         ]);
 
         $data = $request->only('name', 'price', 'description');
 
         if ($request->hasFile('image')) {
-            // Hapus gambar lama jika ada
             if ($product->image) {
                 Storage::disk('public')->delete($product->image);
             }
-
             $data['image'] = $request->file('image')->store('products', 'public');
         }
 
