@@ -50,13 +50,6 @@
                 class="w-full bg-indigo-600 text-white py-3 rounded-lg font-medium hover:bg-indigo-700 transition duration-300">
                 Login
             </button>
-
-            <p class="text-center text-sm text-gray-500 mt-4">
-                Belum punya akun?
-                <a href="{{ route('register.form') }}" class="text-indigo-500 hover:underline">
-                    Daftar di sini
-                </a>
-            </p>
         </form>
     </div>
 </body>

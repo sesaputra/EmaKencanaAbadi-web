@@ -15,11 +15,6 @@ class AuthController extends Controller
         return view('Auth.login');
     }
 
-    public function showRegisterForm()
-    {
-        return view('auth.register');
-    }
-
     public function register(Request $request)
     {
         $request->validate([
@@ -38,7 +33,7 @@ class AuthController extends Controller
         return redirect('/login')->with('success', 'Akun berhasil dibuat. Silakan login.');
     }
 
-    // Proses login
+    // di AuthController.php
     public function login(Request $request)
     {
         $credentials = $request->validate([
@@ -48,7 +43,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/dashboard'); // Ganti sesuai tujuanmu
+            return redirect()->intended('admin/dashboard'); // Pastikan ini mengarah ke admin dashboard
         }
 
         return back()->withErrors([
@@ -63,6 +58,6 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/dashboard');
+        return redirect()->route('login'); // redirect ke halaman login
     }
 }

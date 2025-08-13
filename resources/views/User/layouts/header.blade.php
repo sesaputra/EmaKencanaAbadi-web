@@ -2,8 +2,8 @@
   <div class="max-w-screen-xl mx-auto px-6 py-4 flex items-center justify-between">
 
     <!-- Logo -->
-    <a href="#" class="flex items-center space-x-3">
-      <svg class="w-8 text-teal-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <a href="#" class="flex items-center space-x-3" aria-label="Ema Kencana Abadi">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-8 text-teal-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="3" y="1" width="7" height="12" />
         <rect x="3" y="17" width="7" height="6" />
         <rect x="14" y="1" width="7" height="6" />
@@ -46,16 +46,9 @@
       <div class="flex items-center gap-2">
         <img class="w-9 h-9 rounded-full border object-cover"
           src="{{ asset(Auth::user()->photo) }}"
-          alt="user photo" />
+          alt="{{ Auth::user()->name }} photo" />
         <span class="text-gray-700 text-xl">{{ Auth::user()->name }}</span>
       </div>
-
-      <form method="POST" action="{{ route('logout') }}">
-        @csrf
-        <button type="submit" class="text-base font-semibold tracking-wide text-white bg-rose-500 hover:bg-rose-600 px-5 py-2 rounded-full shadow-sm transition duration-200">
-          Logout
-        </button>
-      </form>
       @else
       <a href="{{ route('login') }}" class="text-base font-semibold tracking-wide text-white bg-emerald-500 hover:bg-emerald-600 px-6 py-2 rounded-full shadow-sm transition duration-200">
         Login

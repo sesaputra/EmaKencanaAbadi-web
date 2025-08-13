@@ -47,7 +47,7 @@
         <div class="w-full lg:w-3/4 max-w-[950px] ml-auto space-y-10">
 
             <!-- Box 1: Daftar Produk -->
-            <a href="{{ route('product') }}" class="block bg-green-50 border border-green-300 rounded-xl p-6 shadow-md hover:shadow-lg transition duration-200">
+            <div class="block bg-green-50 border border-green-300 rounded-xl p-6 shadow-md hover:shadow-lg transition duration-200">
                 <div class="flex items-center mb-3">
                     <i class="fas fa-cubes text-green-500 text-2xl mr-3"></i>
                     <h3 class="text-lg font-semibold text-green-800">Daftar Produk</h3>
@@ -57,7 +57,7 @@
                     bangunan hingga layanan penyewaan excavator. Setiap produk disertai dengan informasi lengkap seperti nama produk,
                     spesifikasi, dan ketersediaan stok untuk memudahkan pelanggan dalam memilih kebutuhan konstruksi mereka.
                 </p>
-            </a>
+            </div>
 
             <!-- Box 2: Tentang Kami -->
             <a href="{{ route('about') }}" class="block bg-yellow-50 border border-yellow-300 rounded-xl p-6 shadow-md hover:shadow-lg transition duration-200">
